@@ -206,6 +206,22 @@ h1, h2, h3, .year-label { font-family: "Black Han Sans", "Noto Sans KR", sans-se
 .report-table td:last-child { text-align: right; font-weight: 900; }
 .big-emoji { font-size: 64px; text-align: center; display: block; margin: 4px 0 8px; }
 .screen-shake { animation: shake .3s 2; }
+
+/* 관리자 모드 */
+.admin-btn { margin-top: 10px; background: #fff; font-size: 13px; padding: 7px; }
+.admin-badge {
+  display: none; margin-top: 6px; text-align: right;
+  font-weight: 900; font-size: 13px; color: var(--ink);
+}
+.admin-badge span { background: var(--gold); border: 2px solid var(--ink); padding: 1px 8px; }
+body.admin .admin-badge { display: block; }
+body.admin .big-potato { box-shadow: 8px 8px 0 var(--ink), 0 0 0 6px var(--gold), 0 0 40px 10px var(--gold); }
+.field { display: block; margin: 10px 0; font-weight: 700; font-size: 14px; }
+.field input {
+  display: block; width: 100%; margin-top: 4px; padding: 9px 10px;
+  font: inherit; border: 3px solid var(--ink); background: #fff;
+}
+.login-err { color: var(--red); font-weight: 900; min-height: 1.4em; }
 </style>
 </head>
 <body>
@@ -218,6 +234,7 @@ h1, h2, h3, .year-label { font-family: "Black Han Sans", "Noto Sans KR", sans-se
     <div class="yearbox">
       <div class="year-label">주체 감자 <span id="year">1</span>년</div>
       <div class="timebar"><div id="timefill"></div></div>
+      <div class="admin-badge"><span>👑 관리자 모드 · 꾹 누르면 밀리초당 10연타</span></div>
     </div>
   </header>
 
@@ -248,6 +265,7 @@ h1, h2, h3, .year-label { font-family: "Black Han Sans", "Noto Sans KR", sans-se
       <button id="fudgeBtn" class="btn danger">📈 통계 "보정"하기</button>
       <p class="tiny center">보고 수치 +25% · 검열 위험 +18<br/>숫자는 펜으로 캐는 것이다</p>
       <div class="private" id="privateBox"><span>💼 동무의 개인 재산</span><b>0</b></div>
+      <button id="adminBtn" class="btn admin-btn">🔑 관리자 모드</button>
     </section>
 
     <section class="panel center-stage">
